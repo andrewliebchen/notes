@@ -1,0 +1,21 @@
+<head>
+  <title>notes</title>
+</head>
+
+<body>
+  {{> notes}}
+</body>
+
+<template name="notes">
+  {{#each note}}
+    <div class="note">
+      {{#if editing}}
+        <textarea class="mtr_edit-content">{{content}}</textarea>
+        <a class="mtr_done-editing-note">Done</a>
+      {{else}}
+        <a class="mtr_edit-note">Edit</a>
+        {{content}}
+      {{/if}}
+    </div>
+  {{/each}}
+</template>
