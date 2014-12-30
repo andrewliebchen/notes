@@ -30,7 +30,7 @@ if (Meteor.isClient) {
     },
 
     'keyup .mtr_edit-content': function(event, template) {
-      if (event.which == 32) {
+      if (event.which == 32 || event.which == 8 || event.which == 13) {
         updateContent(this._id, template);
       }
     },
