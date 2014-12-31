@@ -137,6 +137,27 @@ a {
   background-color: darken($color-gray-light, 5%);
 }
 
+.panel__thumbnail {
+  background-color: $color-gray-light;
+  color: $color-gray-mid;
+  padding: 0.5em 1em;
+  margin-bottom: 0.5em;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 3px;
+
+  &:hover {
+    color: $color-gray-dark;
+  }
+
+  &.is-selected {
+    // box-shadow: 0 0 0 3px rgba($color-accent, 0.2);
+    border-color: $color-gray-mid;
+    color: $color-gray-dark;
+  }
+}
+
 .note {
   flex: 2;
 }
