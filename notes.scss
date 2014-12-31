@@ -22,6 +22,25 @@ body {
   line-height: 1.5;
 }
 
+h1,
+h2,
+h3,
+h4 {
+  padding-bottom: 0.5em;
+}
+
+p {
+  padding-bottom: 1em;
+}
+
+a {
+  color: $color-gray-dark;
+
+  &:hover {
+    color: $color-accent;
+  }
+}
+
 .wrapper {
   background-color: $color-gray-light;
   color: $color-gray-dark;
@@ -68,6 +87,7 @@ body {
 
   &:hover {
     background-color: darken($color-gray-light, 15%);
+    color: $color-gray-light;
   }
 
   .is-editing & {
@@ -76,6 +96,7 @@ body {
 
     &:hover {
       background-color: lighten($color-gray-dark, 15%);
+      color: $color-gray-dark;
     }
   }
 }
@@ -85,11 +106,6 @@ body {
   margin: 0 auto;
   max-width: 50em;
   flex: 1;
-}
-
-textarea,
-.note__content {
-  white-space: pre-wrap;
 }
 
 textarea {
@@ -102,4 +118,9 @@ textarea {
   height: 100vh;
   line-height: 1.5;
   width: 100%;
+  white-space: pre-wrap;
+
+  &:focus {
+    outline: none;
+  }
 }
