@@ -4,34 +4,42 @@
 
 <body>
   <div class="wrapper{{#if editing}} is-editing{{/if}}">
-    <aside class="sidebar left">
-      <nav class="nav">
-        <a class="nav__item" title="Notes">N</a>
-      </nav>
-    </aside>
-    {{> notes}}
+    {{> panel}}
+    {{> note}}
+  </div>
+</body>
+
+<template name="panel">
+  <aside class="sidebar left">
+    <nav class="nav">
+      <a class="nav__item mtr_toggle-panel{{#if showPanel}} is-selected{{/if}}" title="Notes">N</a>
+      <a class="nav__item" title="User">U</a>
+    </nav>
+  </aside>
+  {{#if showPanel}}
+    <div class="panel">
+
+    </div>
+  {{/if}}
+</template>
+
+<template name="note">
+  {{#each note}}
+    <div class="note">
+      <div class="note__content">
+        {{#if editing}}
+          <textarea class="mtr_edit-content">{{content}}</textarea>
+        {{else}}
+          {{#markdown}}{{content}}{{/markdown}}
+        {{/if}}
+      </div>
+    </div>
     <aside class="sidebar right">
       <nav class="nav">
-        <a class="nav__item" title="Edit">E</a>
+        <a class="nav__item edit-toggle mtr_edit-toggle" title="Edit">E</a>
         <a class="nav__item" title="Info">I</a>
         <a class="nav__item" title="New note">&#10010;</a>
       </nav>
     </aside>
-  </div>
-</body>
-
-<template name="notes">
-  {{#each note}}
-    <div class="note">
-      {{#if editing}}
-        <textarea class="mtr_edit-content">{{content}}</textarea>
-        <a class="mtr_done-editing-note">Done</a>
-      {{else}}
-        <div class="note__content">
-          {{#markdown}}{{content}}{{/markdown}}
-        </div>
-        <a class="mtr_edit-note">Edit</a>
-      {{/if}}
-    </div>
   {{/each}}
 </template>

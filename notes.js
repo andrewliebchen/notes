@@ -2,22 +2,7 @@ Notes = new Meteor.Collection('notes');
 
 if (Meteor.isClient) {
   Session.setDefault('editing', null);
-
-  UI.body.helpers({
-    editing: function() {
-      return Session.get('editing');
-    }
-  });
-
-  Template.notes.helpers({
-    editing: function() {
-      return Session.get('editing');
-    },
-
-    note: function() {
-      return Notes.find({});
-    }
-  });
+  Session.setDefault('currentPanel', null);
 
   function updateContent(noteId, template) {
     var noteContent = template.find('.mtr_edit-content');
@@ -30,20 +15,48 @@ if (Meteor.isClient) {
     }
   };
 
-  Template.notes.events({
-    'click .mtr_edit-note': function() {
-      Session.set('editing', this._id);
+  UI.body.helpers({
+    editing: function() {
+      return Session.get('editing');
+    }
+  });
+
+  Template.panel.helpers({
+    showPanel: function() {
+      return Session.get('currentPanel');
+    }
+  });
+
+  Template.panel.events({
+    'click .mtr_toggle-panel': function(event, template) {
+      Session.get('currentPanel') ? Session.set('currentPanel', null) : Session.set('currentPanel', true);
+    }
+  });
+
+  Template.note.helpers({
+    editing: function() {
+      return Session.get('editing');
     },
 
+    note: function() {
+      return Notes.find({});
+    }
+  });
+
+  Template.note.events({
     'keyup .mtr_edit-content': function(event, template) {
       if (event.which == 32 || event.which == 8 || event.which == 13) {
         updateContent(this._id, template);
       }
     },
 
-    'click .mtr_done-editing-note': function(event, template) {
-      updateContent(this._id, template);
-      Session.set('editing', null);
+    'click .mtr_edit-toggle': function(event, template) {
+      if(Session.get('editing')) {
+        updateContent(this._id, template);
+        Session.set('editing', null);
+      } else {
+        Session.set('editing', this._id);
+      }
     }
   });
 }

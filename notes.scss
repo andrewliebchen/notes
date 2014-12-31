@@ -9,6 +9,14 @@ $font-family-mono: "input mono", monospace;
 
 $width-sidebar: 4em;
 
+@mixin selected-nav-item {
+  background-color: darken($color-gray-light, 15%);
+
+  &:hover {
+    background-color: $color-gray-light;
+  }
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -90,6 +98,14 @@ a {
     color: $color-gray-light;
   }
 
+  &.is-selected {
+    background-color: darken($color-gray-light, 15%);
+
+    &:hover {
+      background-color: $color-gray-mid;
+    }
+  }
+
   .is-editing & {
     background-color: lighten($color-gray-dark, 5%);
     color: $color-gray-dark;
@@ -98,14 +114,38 @@ a {
       background-color: lighten($color-gray-dark, 15%);
       color: $color-gray-dark;
     }
+
+    &.is-selected {
+      @include selected-nav-item;
+    }
   }
 }
 
+.edit-toggle {
+  .is-editing & {
+    @include selected-nav-item;
+  }
+}
+
+.panel,
 .note {
   padding: 1em $width-sidebar;
+}
+
+.panel {
+  flex: 1;
+  background-color: darken($color-gray-light, 5%);
+}
+
+.note {
+  flex: 2;
+}
+
+.note__content {
+  box-sizing: content-box;
   margin: 0 auto;
   max-width: 50em;
-  flex: 1;
+  padding-right: $width-sidebar;
 }
 
 textarea {
@@ -119,6 +159,7 @@ textarea {
   line-height: 1.5;
   width: 100%;
   white-space: pre-wrap;
+  resize: none;
 
   &:focus {
     outline: none;
