@@ -3,6 +3,12 @@ Notes = new Meteor.Collection('notes');
 if (Meteor.isClient) {
   Session.setDefault('editing', null);
 
+  UI.body.helpers({
+    editing: function() {
+      return Session.get('editing');
+    }
+  });
+
   Template.notes.helpers({
     editing: function() {
       return Session.get('editing');

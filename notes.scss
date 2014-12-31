@@ -1,0 +1,105 @@
+$color-gray-light: #f7f7f7;
+$color-gray-mid: #999;
+$color-gray-dark: #444;
+$color-accent: #0074D9;
+
+$font-size-base: 18px;
+$font-family-base: "helvetica neue", helvetica, arial, sans-serif;
+$font-family-mono: "input mono", monospace;
+
+$width-sidebar: 4em;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  line-height: 1.5;
+}
+
+.wrapper {
+  background-color: $color-gray-light;
+  color: $color-gray-dark;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  width: 100vw;
+  display: flex;
+
+  &.is-editing {
+    background-color: $color-gray-dark;
+    color: $color-gray-light;
+    font-family: $font-family-mono;
+  }
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  padding: 1em;
+
+  &.right {
+    right: 0;
+  }
+
+  &.left {
+    left: 0;
+  }
+}
+
+.nav__item {
+  display: block;
+  height: 2em;
+  width: 2em;
+  border-radius: $width-sidebar / 2;
+  background-color: darken($color-gray-light, 5%);
+  line-height: 2;
+  color: $color-gray-light;
+  text-align: center;
+  margin-bottom: 0.5em;
+  font-weight: bold;
+  cursor: pointer;
+
+  &:hover {
+    background-color: darken($color-gray-light, 15%);
+  }
+
+  .is-editing & {
+    background-color: lighten($color-gray-dark, 5%);
+    color: $color-gray-dark;
+
+    &:hover {
+      background-color: lighten($color-gray-dark, 15%);
+    }
+  }
+}
+
+.note {
+  padding: 1em $width-sidebar;
+  margin: 0 auto;
+  max-width: 50em;
+  flex: 1;
+}
+
+textarea,
+.note__content {
+  white-space: pre-wrap;
+}
+
+textarea {
+  appearance: none;
+  background-color: transparent;
+  border: 0;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  height: 100vh;
+  line-height: 1.5;
+  width: 100%;
+}
