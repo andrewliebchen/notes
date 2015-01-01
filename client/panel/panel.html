@@ -1,0 +1,17 @@
+<template name="panel">
+  <aside class="sidebar left">
+    <nav class="nav">
+      <a class="nav__item mtr_toggle-panel{{#if showPanel}} is-selected{{/if}}" title="Notes">N</a>
+      <a class="nav__item" title="User">U</a>
+    </nav>
+  </aside>
+  {{#if showPanel}}
+    <div class="panel">
+      {{#each note}}
+        <div class="panel__thumbnail mtr_select-note{{#if isSelected}} is-selected{{/if}}">
+          {{content}}
+        </div>
+      {{/each}}
+    </div>
+  {{/if}}
+</template>

@@ -1,0 +1,20 @@
+<template name="note">
+  <div class="note">
+    {{#each note}}
+    <div class="note__content">
+      {{#if editing}}
+        <textarea class="mtr_edit-content">{{content}}</textarea>
+      {{else}}
+        {{#markdown}}{{content}}{{/markdown}}
+      {{/if}}
+    </div>
+    {{/each}}
+  </div>
+  <aside class="sidebar right">
+    <nav class="nav">
+      <a class="nav__item edit-toggle mtr_edit-toggle" title="Edit">E</a>
+      <a class="nav__item" title="Info">I</a>
+      <a class="nav__item" title="New note">&#10010;</a>
+    </nav>
+  </aside>
+</template>
