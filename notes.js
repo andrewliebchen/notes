@@ -2,7 +2,8 @@ Notes = new Meteor.Collection('notes');
 
 if (Meteor.isClient) {
   Session.setDefault('editing', null);
-  Session.setDefault('currentPanel', null);
+  Session.setDefault('showPanel', null);
+  Session.setDefault('currentNote', null);
 
   function updateContent(noteId, template) {
     var noteContent = template.find('.mtr_edit-content');
@@ -23,13 +24,25 @@ if (Meteor.isClient) {
 
   Template.panel.helpers({
     showPanel: function() {
-      return Session.get('currentPanel');
+      return Session.get('showPanel');
+    },
+
+    note: function() {
+      return Notes.find({});
+    },
+
+    isSelected: function() {
+      return this._id === Session.get('currentNote') ? true : null;
     }
   });
 
   Template.panel.events({
     'click .mtr_toggle-panel': function(event, template) {
-      Session.get('currentPanel') ? Session.set('currentPanel', null) : Session.set('currentPanel', true);
+      Session.get('showPanel') ? Session.set('showPanel', null) : Session.set('showPanel', true);
+    },
+
+    'click .mtr_select-note': function() {
+      Session.set('currentNote', this._id);
     }
   });
 
@@ -39,7 +52,7 @@ if (Meteor.isClient) {
     },
 
     note: function() {
-      return Notes.find({});
+      return Notes.find({_id: Session.get('currentNote')});
     }
   });
 

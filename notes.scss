@@ -53,8 +53,7 @@ a {
   background-color: $color-gray-light;
   color: $color-gray-dark;
   height: 100vh;
-  overflow-x: hidden;
-  overflow-y: scroll;
+  overflow: hidden;
   width: 100vw;
   display: flex;
 
@@ -130,6 +129,8 @@ a {
 .panel,
 .note {
   padding: 1em $width-sidebar;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 .panel {
@@ -152,14 +153,13 @@ a {
   }
 
   &.is-selected {
-    // box-shadow: 0 0 0 3px rgba($color-accent, 0.2);
     border-color: $color-gray-mid;
     color: $color-gray-dark;
   }
 }
 
 .note {
-  flex: 2;
+  flex: 3;
 }
 
 .note__content {
