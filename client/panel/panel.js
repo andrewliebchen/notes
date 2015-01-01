@@ -9,6 +9,10 @@ Template.panel.helpers({
     return Notes.find({});
   },
 
+  shortContent: function() {
+    return this.content.substr(0, 80)+'...'
+  },
+
   isSelected: function() {
     return this._id === Session.get('currentNote') ? true : null;
   }

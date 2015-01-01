@@ -128,25 +128,36 @@ a {
 
 .panel,
 .note {
-  padding: 1em $width-sidebar;
   overflow-x: hidden;
   overflow-y: scroll;
 }
 
 .panel {
   flex: 1;
+  padding: 1em 1em 1em $width-sidebar;
   background-color: darken($color-gray-light, 5%);
 }
 
 .panel__thumbnail {
   background-color: $color-gray-light;
   color: $color-gray-mid;
-  padding: 0.5em 1em;
+  padding: 0.5em 1em 0.25em;
   margin-bottom: 0.5em;
   overflow: hidden;
   cursor: pointer;
   border: 1px solid transparent;
   border-radius: 3px;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    background-image: linear-gradient(to bottom, rgba($color-gray-light, 0), $color-gray-light);
+    height: 2em;
+  }
 
   &:hover {
     color: $color-gray-dark;
@@ -156,10 +167,17 @@ a {
     border-color: $color-gray-mid;
     color: $color-gray-dark;
   }
+
+  small {
+    max-height: 4.25em;
+    overflow: hidden;
+    display: inline-block;
+  }
 }
 
 .note {
   flex: 3;
+  padding: 1em $width-sidebar;
 }
 
 .note__content {
