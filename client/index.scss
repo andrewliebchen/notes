@@ -1,11 +1,11 @@
 $color-gray-light: #f7f7f7;
-$color-gray-mid: #999;
+$color-gray-mid: #bbb;
 $color-gray-dark: #444;
 $color-accent: #0074D9;
 
 $font-size-base: 18px;
 $font-family-base: "helvetica neue", helvetica, arial, sans-serif;
-$font-family-mono: "input mono", monospace;
+$font-family-mono: "source code pro", monospace;
 
 $width-sidebar: 4em;
 
@@ -49,13 +49,23 @@ a {
   }
 }
 
+::-moz-selection {
+  background-color: $color-accent;
+  color: white;
+}
+
+::selection {
+  background-color: $color-accent;
+  color: white;
+}
+
 .wrapper {
   background-color: $color-gray-light;
   color: $color-gray-dark;
+  display: flex;
   height: 100vh;
   overflow: hidden;
   width: 100vw;
-  display: flex;
 
   &.is-editing {
     background-color: $color-gray-dark;
@@ -65,10 +75,10 @@ a {
 }
 
 .sidebar {
-  position: fixed;
-  top: 0;
   bottom: 0;
   padding: 1em;
+  position: fixed;
+  top: 0;
 
   &.right {
     right: 0;
@@ -80,17 +90,18 @@ a {
 }
 
 .nav__item {
-  display: block;
-  height: 2em;
-  width: 2em;
-  border-radius: $width-sidebar / 2;
   background-color: darken($color-gray-light, 5%);
-  line-height: 2;
+  border-radius: $width-sidebar / 2;
   color: $color-gray-light;
-  text-align: center;
-  margin-bottom: 0.5em;
-  font-weight: bold;
   cursor: pointer;
+  display: block;
+  font-weight: bold;
+  height: 2em;
+  line-height: 2;
+  margin-bottom: 0.5em;
+  text-align: center;
+  user-select: none;
+  width: 2em;
 
   &:hover {
     background-color: darken($color-gray-light, 15%);
@@ -134,38 +145,49 @@ a {
 
 .panel {
   flex: 1;
-  padding: 1em 1em 1em $width-sidebar;
-  background-color: darken($color-gray-light, 5%);
+  padding: 1em 0 1em $width-sidebar;
 }
 
 .panel__thumbnail {
-  background-color: $color-gray-light;
-  color: $color-gray-mid;
-  padding: 0.5em 1em 0.25em;
-  margin-bottom: 0.5em;
-  overflow: hidden;
-  cursor: pointer;
-  border: 1px solid transparent;
   border-radius: 3px;
+  border: 1px solid transparent;
+  color: $color-gray-mid;
+  cursor: pointer;
+  font-family: $font-family-base;
+  overflow: hidden;
+  padding: 0.5em 0.5em 0.25em;
   position: relative;
 
   &::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    left: 0;
     background-image: linear-gradient(to bottom, rgba($color-gray-light, 0), $color-gray-light);
+    bottom: 0;
+    content: "";
     height: 2em;
+    left: 0;
+    position: absolute;
+    width: 100%;
   }
 
-  &:hover {
+  &:hover,
+  &.is-selected {
     color: $color-gray-dark;
   }
 
   &.is-selected {
     border-color: $color-gray-mid;
-    color: $color-gray-dark;
+  }
+
+  .is-editing & {
+    color: lighten($color-gray-dark, 10%);
+
+    &::after {
+      background-image: linear-gradient(to bottom, rgba($color-gray-dark, 0), $color-gray-dark);
+    }
+
+    &:hover,
+    &.is-selected {
+      color: $color-gray-mid;
+    }
   }
 
   small {
@@ -196,9 +218,9 @@ textarea {
   font-size: inherit;
   height: 100vh;
   line-height: 1.5;
-  width: 100%;
-  white-space: pre-wrap;
   resize: none;
+  white-space: pre-wrap;
+  width: 100%;
 
   &:focus {
     outline: none;
