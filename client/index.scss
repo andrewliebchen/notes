@@ -131,6 +131,16 @@ a {
   }
 }
 
+.nav__item__icon {
+  height: 1em;
+  margin-top: 0.5em;
+  fill: $color-gray-light;
+
+  &.is-selected {
+    fill: $color-gray-dark;
+  }
+}
+
 .edit-toggle {
   .is-editing & {
     @include selected-nav-item;
