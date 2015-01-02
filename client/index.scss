@@ -1,7 +1,7 @@
-$color-gray-light: #f7f7f7;
-$color-gray-mid: #bbb;
-$color-gray-dark: #444;
 $color-accent: #0074D9;
+$color-gray-light: lighten($color-accent, 55%);
+$color-gray-mid: lighten($color-accent, 25%);
+$color-gray-dark: $color-accent;
 
 $font-size-base: 18px;
 $font-family-base: "helvetica neue", helvetica, arial, sans-serif;
@@ -92,7 +92,6 @@ a {
 .nav__item {
   background-color: darken($color-gray-light, 5%);
   border-radius: $width-sidebar / 2;
-  color: $color-gray-light;
   cursor: pointer;
   display: block;
   font-weight: bold;
