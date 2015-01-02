@@ -1,0 +1,19 @@
+<template name="panelLeft">
+  {{#if showLeftPanel}}
+    <div class="panel left">
+      {{#each note}}
+        <div class="panel__thumbnail mtr_select-note{{#if isSelected}} is-selected{{/if}}">
+          <small>{{content}}</small>
+        </div>
+      {{/each}}
+    </div>
+  {{/if}}
+</template>
+
+<template name="panelRight">
+  {{#if showRightPanel}}
+    <div class="panel right">
+      This is a panel
+    </div>
+  {{/if}}
+</template>

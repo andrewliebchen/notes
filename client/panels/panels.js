@@ -1,8 +1,9 @@
-Session.setDefault('showPanel', null);
+Session.setDefault('showLeftPanel', null);
+Session.setDefault('showRightPanel', null);
 
-Template.panel.helpers({
-  showPanel: function() {
-    return Session.get('showPanel');
+Template.panelLeft.helpers({
+  showLeftPanel: function() {
+    return Session.get('showLeftPanel');
   },
 
   note: function() {
@@ -18,12 +19,14 @@ Template.panel.helpers({
   }
 });
 
-Template.panel.events({
-  'click .mtr_toggle-panel': function(event, template) {
-    Session.get('showPanel') ? Session.set('showPanel', null) : Session.set('showPanel', true);
-  },
-
+Template.panelLeft.events({
   'click .mtr_select-note': function() {
     Session.set('currentNote', this._id);
   }
+});
+
+Template.panelRight.helpers({
+  showRightPanel: function() {
+    return Session.get('showRightPanel');
+  },
 });

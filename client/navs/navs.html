@@ -1,0 +1,20 @@
+<template name="navRight">
+  <aside class="nav right">
+    <nav>
+      <a class="nav__item edit-toggle mtr_edit-toggle" title="Edit">{{> editIcon}}</a>
+      <a class="nav__item mtr_toggle-right-panel{{#if isSelected}} is-selected{{/if}}" title="Info">{{> infoIcon}}</a>
+      <a class="nav__item" title="New note">{{> newIcon}}</a>
+    </nav>
+  </aside>
+</template>
+
+<template name="navLeft">
+  <aside class="nav left">
+    <nav>
+      <a class="nav__item mtr_toggle-left-panel{{#if isSelected}} is-selected{{/if}}" title="Notes">
+        {{> menuIcon}}
+      </a>
+      <a class="nav__item" title="User">{{> userIcon}}</a>
+    </nav>
+  </aside>
+</template>

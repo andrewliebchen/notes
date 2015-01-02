@@ -7,7 +7,7 @@ $font-size-base: 18px;
 $font-family-base: "helvetica neue", helvetica, arial, sans-serif;
 $font-family-mono: "source code pro", monospace;
 
-$width-sidebar: 4em;
+$width-nav: 4em;
 
 @mixin selected-nav-item {
   background-color: darken($color-gray-light, 15%);
@@ -74,7 +74,7 @@ a {
   }
 }
 
-.sidebar {
+.nav {
   bottom: 0;
   padding: 1em;
   position: fixed;
@@ -91,7 +91,7 @@ a {
 
 .nav__item {
   background-color: darken($color-gray-light, 5%);
-  border-radius: $width-sidebar / 2;
+  border-radius: $width-nav / 2;
   cursor: pointer;
   display: block;
   font-weight: bold;
@@ -155,7 +155,16 @@ a {
 
 .panel {
   flex: 1;
-  padding: 1em 0 1em $width-sidebar;
+  padding: 1em 0;
+  font-family: $font-family-base;
+
+  &.left {
+    padding-left: $width-nav;
+  }
+
+  &.right {
+    padding-right: $width-nav;
+  }
 }
 
 .panel__thumbnail {
@@ -163,7 +172,6 @@ a {
   border: 1px solid transparent;
   color: $color-gray-mid;
   cursor: pointer;
-  font-family: $font-family-base;
   overflow: hidden;
   padding: 0.5em 0.5em 0.25em;
   position: relative;
@@ -209,14 +217,14 @@ a {
 
 .note {
   flex: 3;
-  padding: 1em $width-sidebar;
+  padding: 1em $width-nav;
 }
 
 .note__content {
   box-sizing: content-box;
   margin: 0 auto;
   max-width: 50em;
-  padding-right: $width-sidebar;
+  padding-right: $width-nav;
 }
 
 textarea {
