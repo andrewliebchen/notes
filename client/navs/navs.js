@@ -11,24 +11,24 @@ Template.navRight.helpers({
 });
 
 Template.navLeft.events({
-  'click .mtr_toggle-left-panel': function(event, template) {
+  'click .mtr_toggle-left-panel': function() {
     Session.get('showLeftPanel') ? Session.set('showLeftPanel', null) : Session.set('showLeftPanel', true);
   }
 });
 
 Template.navRight.events({
-  'click .mtr_edit-toggle': function(event, template) {
+  'click .mtr_edit-toggle': function() {
     var currentNote = Session.get('currentNote');
 
     if(Session.get('editing')) {
-      updateContent(currentNote, template);
+      updateContent(currentNote);
       Session.set('editing', null);
     } else {
       Session.set('editing', currentNote);
     }
   },
 
-  'click .mtr_toggle-right-panel': function(event, template) {
+  'click .mtr_toggle-right-panel': function() {
     Session.get('showRightPanel') ? Session.set('showRightPanel', null) : Session.set('showRightPanel', true);
   }
 });

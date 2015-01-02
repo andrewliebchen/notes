@@ -13,7 +13,7 @@ Template.note.helpers({
 Template.note.events({
   'keyup .mtr_edit-content': function(event, template) {
     if (event.which == 32 || event.which == 8 || event.which == 13) {
-      updateContent(Session.get('currentNote'), template);
+      updateContent(Session.get('currentNote'));
     }
   }
 });

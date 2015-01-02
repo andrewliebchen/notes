@@ -1,7 +1,7 @@
 Session.setDefault('editing', null);
 
-updateContent = function(noteId, template) {
-  var noteContent = template.find('.mtr_edit-content');
+updateContent = function(noteId) {
+  var noteContent = document.getElementById('mtr_edit-content');
 
   if(noteContent.value !== ''){
     Meteor.call('updateNoteContent', noteId, {

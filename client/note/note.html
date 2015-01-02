@@ -3,7 +3,7 @@
     {{#each note}}
     <div class="note__content">
       {{#if editing}}
-        <textarea class="mtr_edit-content">{{content}}</textarea>
+        <textarea id="mtr_edit-content">{{content}}</textarea>
       {{else}}
         {{#markdown}}{{content}}{{/markdown}}
       {{/if}}
