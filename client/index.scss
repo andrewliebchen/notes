@@ -1,5 +1,5 @@
 $color-accent: #0074D9;
-$color-gray-light: lighten($color-accent, 55%);
+$color-gray-light: #f7f7f7;
 $color-gray-mid: lighten($color-accent, 25%);
 $color-gray-dark: $color-accent;
 
@@ -10,7 +10,7 @@ $font-family-mono: "source code pro", monospace;
 $width-nav: 4em;
 
 @mixin selected-nav-item {
-  background-color: darken($color-gray-light, 15%);
+  background-color: lighten($color-gray-mid, 15%);
 
   &:hover {
     background-color: $color-gray-light;
