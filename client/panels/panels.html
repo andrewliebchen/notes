@@ -13,7 +13,29 @@
 <template name="panelRight">
   {{#if showRightPanel}}
     <div class="panel right">
-      This is a panel
+      {{#each note}}
+        <div class="panel__section">
+          <label>Created by</label>
+          <p>Andrew Liebchen</p>
+        </div>
+        <div class="panel__section">
+          <label>Created on</label>
+          <p>{{formatDate createdAt 'long'}}</p>
+        </div>
+        {{#if updatedAt}}
+          <div class="panel__section">
+            <label>Last edited</label>
+            <p>{{updatedAt}}</p>
+          </div>
+        {{/if}}
+        <div class="panel__section">
+          <label>Tags</label>
+          <ul class="tags">
+            <li class="tag">#tag</li>
+            <li class="tag">#tag</li>
+          </ul>
+        </div>
+      {{/each}}
     </div>
   {{/if}}
 </template>

@@ -49,6 +49,13 @@ a {
   }
 }
 
+label {
+  font-size: 0.6em;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-weight: bold;
+}
+
 ::-moz-selection {
   background-color: $color-accent;
   color: white;
@@ -165,6 +172,11 @@ a {
   &.right {
     padding-right: $width-nav;
     color: darken($color-light, 50%);
+    text-align: right;
+
+    .is-editing & {
+      color: $color-mid;
+    }
   }
 }
 
@@ -211,6 +223,10 @@ a {
   }
 }
 
+.tag {
+
+}
+
 .note {
   flex: 3;
   padding: 1em $width-nav;
@@ -219,8 +235,7 @@ a {
 .note__content {
   box-sizing: content-box;
   margin: 0 auto;
-  max-width: 50em;
-  padding-right: $width-nav;
+  max-width: 53em;
 }
 
 textarea {

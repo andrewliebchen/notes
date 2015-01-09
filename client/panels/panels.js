@@ -29,4 +29,8 @@ Template.panelRight.helpers({
   showRightPanel: function() {
     return Session.get('showRightPanel');
   },
+
+  note: function() {
+    return Notes.find({_id: Session.get('currentNote')});
+  }
 });
