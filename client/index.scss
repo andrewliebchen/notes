@@ -1,19 +1,19 @@
 $color-accent: #0074D9;
-$color-gray-light: #f7f7f7;
-$color-gray-mid: lighten($color-accent, 25%);
-$color-gray-dark: $color-accent;
+$color-light: #f7f7f7;
+$color-mid: lighten($color-accent, 25%);
+$color-dark: $color-accent;
 
 $font-size-base: 18px;
-$font-family-base: "helvetica neue", helvetica, arial, sans-serif;
+$font-family-base: "open sans", helvetica, arial, sans-serif;
 $font-family-mono: "source code pro", monospace;
 
 $width-nav: 4em;
 
 @mixin selected-nav-item {
-  background-color: lighten($color-gray-mid, 15%);
+  background-color: lighten($color-mid, 15%);
 
   &:hover {
-    background-color: $color-gray-light;
+    background-color: $color-light;
   }
 }
 
@@ -42,7 +42,7 @@ p {
 }
 
 a {
-  color: $color-gray-dark;
+  color: $color-dark;
 
   &:hover {
     color: $color-accent;
@@ -60,16 +60,16 @@ a {
 }
 
 .wrapper {
-  background-color: $color-gray-light;
-  color: $color-gray-dark;
+  background-color: $color-light;
+  color: $color-dark;
   display: flex;
   height: 100vh;
   overflow: hidden;
   width: 100vw;
 
   &.is-editing {
-    background-color: $color-gray-dark;
-    color: $color-gray-light;
+    background-color: $color-dark;
+    color: $color-light;
     font-family: $font-family-mono;
   }
 }
@@ -90,7 +90,7 @@ a {
 }
 
 .nav__item {
-  background-color: darken($color-gray-light, 5%);
+  background-color: darken($color-light, 5%);
   border-radius: $width-nav / 2;
   cursor: pointer;
   display: block;
@@ -103,25 +103,25 @@ a {
   width: 2em;
 
   &:hover {
-    background-color: darken($color-gray-light, 15%);
-    color: $color-gray-light;
+    background-color: darken($color-light, 15%);
+    color: $color-light;
   }
 
   &.is-selected {
-    background-color: darken($color-gray-light, 15%);
+    background-color: darken($color-light, 15%);
 
     &:hover {
-      background-color: $color-gray-mid;
+      background-color: $color-mid;
     }
   }
 
   .is-editing & {
-    background-color: lighten($color-gray-dark, 5%);
-    color: $color-gray-dark;
+    background-color: lighten($color-dark, 5%);
+    color: $color-dark;
 
     &:hover {
-      background-color: lighten($color-gray-dark, 15%);
-      color: $color-gray-dark;
+      background-color: lighten($color-dark, 15%);
+      color: $color-dark;
     }
 
     &.is-selected {
@@ -133,11 +133,11 @@ a {
 .nav__item__icon {
   height: 1em;
   margin-top: 0.5em;
-  fill: $color-gray-light;
+  fill: $color-light;
 
   .is-editing &,
   .is-editing .is-selected & {
-    fill: $color-gray-dark;
+    fill: $color-dark;
   }
 }
 
@@ -164,23 +164,23 @@ a {
 
   &.right {
     padding-right: $width-nav;
+    color: darken($color-light, 50%);
   }
 }
 
 .panel__thumbnail {
   border-radius: 3px;
-  border: 1px solid transparent;
-  color: $color-gray-mid;
+  color: darken($color-light, 25%);
   cursor: pointer;
   overflow: hidden;
-  padding: 0.5em 0.5em 0.25em;
+  padding: 0 0.5em 1em;
   position: relative;
 
   &::after {
-    background-image: linear-gradient(to bottom, rgba($color-gray-light, 0), $color-gray-light);
+    background-image: linear-gradient(to bottom, rgba($color-light, 0), $color-light);
     bottom: 0;
     content: "";
-    height: 2em;
+    height: 3em;
     left: 0;
     position: absolute;
     width: 100%;
@@ -188,23 +188,19 @@ a {
 
   &:hover,
   &.is-selected {
-    color: $color-gray-dark;
-  }
-
-  &.is-selected {
-    border-color: $color-gray-mid;
+    color: $color-dark;
   }
 
   .is-editing & {
-    color: lighten($color-gray-dark, 10%);
+    color: lighten($color-dark, 20%);
 
     &::after {
-      background-image: linear-gradient(to bottom, rgba($color-gray-dark, 0), $color-gray-dark);
+      background-image: linear-gradient(to bottom, rgba($color-dark, 0), $color-dark);
     }
 
     &:hover,
     &.is-selected {
-      color: $color-gray-mid;
+      color: $color-light;
     }
   }
 
