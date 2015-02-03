@@ -38,7 +38,7 @@ h4 {
 }
 
 p {
-  padding-bottom: 1em;
+  padding-bottom: 1.5em;
 }
 
 a {
@@ -181,11 +181,11 @@ label {
 }
 
 .panel__thumbnail {
-  border-radius: 3px;
+  border: 2px solid transparent;
   color: darken($color-light, 25%);
   cursor: pointer;
   overflow: hidden;
-  padding: 0 0.5em 1em;
+  padding: 0.5em;
   position: relative;
 
   &::after {
@@ -220,6 +220,19 @@ label {
     max-height: 4.25em;
     overflow: hidden;
     display: inline-block;
+  }
+
+  + .panel__thumbnail {
+    border-top: 2px solid darken($color-light, 15%);
+  }
+
+  &.is-selected + .panel__thumbnail {
+    border-top-color: transparent;
+  }
+
+  &.is-selected {
+    border: 2px solid lighten($color-dark, 25%);
+    border-radius: 3px;
   }
 }
 
