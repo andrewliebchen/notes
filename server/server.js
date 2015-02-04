@@ -4,5 +4,9 @@ Meteor.methods({
       content: args.content,
       updatedAt: args.updatedAt
     }});
+  },
+
+  'newNote': function(){
+    return Notes.insert({});
   }
 });

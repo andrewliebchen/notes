@@ -30,5 +30,13 @@ Template.navRight.events({
 
   'click .mtr_toggle-right-panel': function() {
     Session.get('showRightPanel') ? Session.set('showRightPanel', null) : Session.set('showRightPanel', true);
+  },
+
+  'click .mtr_new-note': function(){
+    console.log('added');
+    Meteor.call('newNote', function(error, newNoteId){
+      Session.set('currentNote', newNoteId);
+      Session.set('editing', newNoteId);
+    });
   }
 });

@@ -187,6 +187,7 @@ label {
   overflow: hidden;
   padding: 0.5em;
   position: relative;
+  height: 5em;
 
   &::after {
     background-image: linear-gradient(to bottom, rgba($color-light, 0), $color-light);
@@ -220,10 +221,6 @@ label {
     max-height: 4.25em;
     overflow: hidden;
     display: inline-block;
-  }
-
-  + .panel__thumbnail {
-    border-top: 2px solid darken($color-light, 15%);
   }
 
   &.is-selected + .panel__thumbnail {
