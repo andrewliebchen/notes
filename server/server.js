@@ -6,7 +6,9 @@ Meteor.methods({
     }});
   },
 
-  'newNote': function(){
-    return Notes.insert({});
+  'newNote': function(createdAt){
+    return Notes.insert({
+      createdAt: createdAt
+    });
   }
 });

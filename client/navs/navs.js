@@ -34,7 +34,7 @@ Template.navRight.events({
 
   'click .mtr_new-note': function(){
     console.log('added');
-    Meteor.call('newNote', function(error, newNoteId){
+    Meteor.call('newNote', Date.now(), function(error, newNoteId){
       Session.set('currentNote', newNoteId);
       Session.set('editing', newNoteId);
     });

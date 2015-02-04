@@ -19,13 +19,13 @@
           <p>Andrew Liebchen</p>
         </div>
         <div class="panel__section">
-          <label>Created on</label>
+          <label>Created</label>
           <p>{{formatDate createdAt 'long'}}</p>
         </div>
         {{#if updatedAt}}
           <div class="panel__section">
             <label>Last edited</label>
-            <p>{{updatedAt}}</p>
+            <p>{{formatDate updatedAt 'long'}}</p>
           </div>
         {{/if}}
         <div class="panel__section">
