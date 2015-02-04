@@ -34,3 +34,11 @@ Template.panelRight.helpers({
     return Notes.find({_id: Session.get('currentNote')});
   }
 });
+
+Template.panelRight.events({
+  'click .mtr_delete-note': function(){
+    Meteor.call('deleteNote', Session.get('currentNote'), function(error, success){
+      Session.set('currentNote', Notes.findOne()._id);
+    });
+  }
+})

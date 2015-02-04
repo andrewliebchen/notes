@@ -10,5 +10,9 @@ Meteor.methods({
     return Notes.insert({
       createdAt: createdAt
     });
+  },
+
+  'deleteNote': function(noteId) {
+    Notes.remove(noteId);
   }
 });

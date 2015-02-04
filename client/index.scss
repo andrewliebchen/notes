@@ -49,11 +49,46 @@ a {
   }
 }
 
+dl {
+  margin-bottom: 1em;
+}
+
+dt,
 label {
   font-size: 0.6em;
   text-transform: uppercase;
   letter-spacing: 0.02em;
   font-weight: bold;
+}
+
+button {
+  background-color: transparent;
+  border-radius: 3px;
+  border: 2px solid $color-dark;
+  color: $color-dark;
+  cursor: pointer;
+  font-size: 1em;
+  line-height: 2;
+  padding: 0 1em;
+
+  &:hover {
+    background-color: $color-dark;
+    color: $color-light;
+  }
+
+  .is-editing & {
+    border-color: $color-light;
+    color: $color-light;
+
+    &:hover {
+      background-color: $color-light;
+      color: $color-dark;
+    }
+  }
+
+  &.small {
+    font-size: 0.75em;
+  }
 }
 
 ::-moz-selection {

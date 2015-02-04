@@ -14,27 +14,30 @@
   {{#if showRightPanel}}
     <div class="panel right">
       {{#each note}}
-        <div class="panel__section">
-          <label>Created by</label>
-          <p>Andrew Liebchen</p>
-        </div>
-        <div class="panel__section">
-          <label>Created</label>
-          <p>{{formatDate createdAt 'long'}}</p>
-        </div>
+        <dl class="panel__section">
+          <dt>Created by</dt>
+          <dd>Andrew Liebchen</dd>
+        </dl>
+        <dl class="panel__section">
+          <dt>Created</dt>
+          <dd>{{formatDate createdAt 'long'}}</dd>
+        </dl>
         {{#if updatedAt}}
-          <div class="panel__section">
-            <label>Last edited</label>
-            <p>{{formatDate updatedAt 'long'}}</p>
-          </div>
+          <dl class="panel__section">
+            <dt>Last edited</dt>
+            <dd>{{formatDate updatedAt 'long'}}</dd>
+          </dl>
         {{/if}}
-        <div class="panel__section">
-          <label>Tags</label>
-          <ul class="tags">
-            <li class="tag">#tag</li>
-            <li class="tag">#tag</li>
-          </ul>
-        </div>
+        <dl class="panel__section">
+          <dt>Tags</dt>
+          <dd>
+            <ul class="tags">
+              <li class="tag">#tag</li>
+              <li class="tag">#tag</li>
+            </ul>
+          </dd>
+        </dl>
+        <button class="small mtr_delete-note">Delete note</button>
       {{/each}}
     </div>
   {{/if}}
