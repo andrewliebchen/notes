@@ -1,7 +1,14 @@
 $color-accent: #0074D9;
-$color-light: #f7f7f7;
-$color-mid: lighten($color-accent, 25%);
-$color-dark: $color-accent;
+$color-light: #F7F9FA;
+$color-mid: #9DA5B1;
+$color-dark: #1E2939;
+
+// $colorGray1: #1E2939;
+// $colorGray2: #3C495C;
+// $colorGray3: #626E80;
+// $colorGray4: #9DA5B1;
+// $colorGray5: #D4D9DF;
+// $colorGray6: #F7F9FA;
 
 $font-size-base: 18px;
 $font-family-base: "open sans", "helvetica neue", helvetica, arial, sans-serif;
